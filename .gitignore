@@ -57,4 +57,8 @@ dkms.conf
 # Coverage temporary files
 *.gcda
 *.gcno
-Checksum
+
+# Lab1 build artifacts and reports
+Lab1/Lab1
+Lab1/coverage_checksum.txt
+Lab1/*.gcov
