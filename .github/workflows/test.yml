@@ -39,7 +39,6 @@ jobs:
           # Determine color based on test results
           if [ "$FAILED" -eq 0 ] && [ "$PASSED" -gt 0 ]; then COLOR="brightgreen"; else COLOR="red"; fi
           
-          cd /workspaces/UnitTestinginEmbeddedSystems
           sed -i "s|badge/tests-[^-]*-[a-z]*|badge/tests-${PASSED}/${TESTS}-${COLOR}|" README.md
           
           git config user.name "github-actions[bot]"
