@@ -24,8 +24,8 @@ jobs:
           OUTPUT=$(./Lab1 2>&1)
           echo "$OUTPUT"
           # Parse Unity output: "X Tests Y Failures Z Ignored"
-          TESTS=$(echo "$OUTPUT" | grep -oP '(?<=\-\-\-\-\-\s)\d+(?=\sTests)' || echo "0")
-          FAILURES=$(echo "$OUTPUT" | grep -oP '\d+(?= Failures)' || echo "0")
+          TESTS=$(echo "$OUTPUT" | grep -oP '\d+(?=\s+Tests)' | head -1 || echo "0")
+          FAILURES=$(echo "$OUTPUT" | grep -oP '\d+(?=\s+Failures)' | head -1 || echo "0")
           PASSED=$((TESTS - FAILURES))
           echo "tests=$TESTS" >> $GITHUB_OUTPUT
           echo "passed=$PASSED" >> $GITHUB_OUTPUT
