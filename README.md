@@ -2,7 +2,7 @@
 
 | Build | Unit Test | Coverage |
 |:--:|:--:|:--:|
-| [![Build](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/build.yml/badge.svg)](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/build.yml) | [![Unit Test](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/test.yml/badge.svg)](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/test.yml) | [![Coverage](https://img.shields.io/badge/coverage-100.00%25-brightgreen)](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/coverage.yml) |
+| [![Build](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/build.yml/badge.svg)](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/build.yml) | [![Unit Test](https://img.shields.io/badge/tests-0/3-brightgreen)](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/test.yml) | [![Coverage](https://img.shields.io/badge/coverage-100.00%25-brightgreen)](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/coverage.yml) |
 
 ### Running the examples locally
 The `Lab1` subproject includes a simple `Makefile` that can be used on Linux/WSL:
