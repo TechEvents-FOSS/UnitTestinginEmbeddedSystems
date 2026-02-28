@@ -53,3 +53,8 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# Coverage temporary files
+*.gcda
+*.gcno
+Checksum
