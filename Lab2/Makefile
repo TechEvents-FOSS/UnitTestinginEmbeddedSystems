@@ -1,4 +1,4 @@
-PROJECT = Lab1
+PROJECT = Lab2
 
 SRC = checksum.c test_checksum.c
 TEST_SRC = unity.c
