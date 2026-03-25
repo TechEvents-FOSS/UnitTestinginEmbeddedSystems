@@ -21,3 +21,7 @@ jobs:
         run: |
           cd Lab1
           ./Lab1
+      - name: Run unit tests
+        run: |
+          cd Lab2
+          ./Lab2

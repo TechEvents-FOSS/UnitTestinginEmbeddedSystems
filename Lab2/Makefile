@@ -21,3 +21,10 @@ clean:
 
 run: test_checksum
 	./$(PROJECT)
+
+coverage: $(SRC) $(TEST_SRC)
+	$(CC) $(COVERAGE_FLAGS) $(CFLAGS) $(INCLUDE) -o $(PROJECT) $^
+	./$(PROJECT)
+	if [ -f Lab1-checksum.gcda ]; then mv Lab1-checksum.gcda checksum.gcda; fi
+	if [ -f Lab1-checksum.gcno ]; then mv Lab1-checksum.gcno checksum.gcno; fi
+	gcov -a checksum.c > coverage_checksum.txt

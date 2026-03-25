@@ -1,16 +1,16 @@
 # Unit Testing in Embedded Systems
 
-| Build | Unit Test | Coverage |
-|:--:|:--:|:--:|
-| [![Build](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/build.yml/badge.svg)](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/build.yml) | [![Unit Test](https://img.shields.io/badge/tests-3/3-brightgreen)](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/test.yml) | [![Coverage](https://img.shields.io/badge/coverage-100.00%25-brightgreen)](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/coverage.yml) |
+| Build |
+|:--:|
+| [![Build](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/build.yml/badge.svg)](https://github.com/TechEvents-FOSS/UnitTestinginEmbeddedSystems/actions/workflows/build.yml) |
 
 ### Running the examples locally
-The `Lab1` subproject includes a simple `Makefile` that can be used on Linux/WSL:
+Each `Lab` subproject includes a simple `Makefile` that can be used on Linux/WSL:
 
 ```sh
-cd Lab1
+cd Lab2
 make all                    # build the test binary
-./Lab1                      # run the unit tests
+./Lab2                      # run the unit tests
 make coverage               # Generate coverage report -> coverage_checksum.txt
 cat coverage_checksum.txt   # see percentage for checksum.c
 ```
