@@ -13,15 +13,11 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y make gcc gcovr build-essential
-      - name: Build
+      - name: Build and Run Lab1
         run: |
-          cd Lab1
-          make all
-      - name: Run unit tests
+          make -C Lab1
+          ./Lab1/Lab1
+      - name: Build and Run Lab2
         run: |
-          cd Lab1
-          ./Lab1
-      - name: Run unit tests
-        run: |
-          cd Lab2
-          ./Lab2
+          make -C Lab2
+          ./Lab2/Lab2
