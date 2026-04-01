@@ -23,7 +23,7 @@ jobs:
           ./Lab2/Lab2
       - name: Install Renode
         run: |
-          .Lab3/install_renode.sh
+          ./Lab3/install_renode.sh
       - name: Build and Run Lab3
         run: |
           make run -C Lab3
