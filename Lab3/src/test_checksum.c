@@ -35,6 +35,27 @@ void test_calculate_checksum_with_max_values(void) {
     TEST_ASSERT_EQUAL_UINT8(expected_checksum, actual_checksum);
 }
 
+void test_calculate_checksum_with_null_buffer(void) {
+    uint8_t *data = NULL;
+    uint8_t expected_checksum = 0;  // Null buffer should return 0
+    uint8_t actual_checksum = calculate_checksum(data, 10); // Length is arbitrary since buffer is NULL
+    TEST_ASSERT_EQUAL_UINT8(expected_checksum, actual_checksum);
+}
+
+void test_calculate_checksum_with_zero_length(void) {
+    uint8_t data[] = {0x01, 0x02, 0x03};
+    uint8_t expected_checksum = 0;  // Zero length should return 0
+    uint8_t actual_checksum = calculate_checksum(data, 0);
+    TEST_ASSERT_EQUAL_UINT8(expected_checksum, actual_checksum);
+}
+
+void test_calculate_zero_checksum(void) {
+    uint8_t data[] = {0x00, 0x00, 0x00, 0x00};
+    uint8_t expected_checksum = 0;  // All zeros should yield a checksum of 0
+    uint8_t actual_checksum = calculate_checksum(data, sizeof(data));
+    TEST_ASSERT_EQUAL_UINT8(expected_checksum, actual_checksum);
+}
+
 int main(void) {
 
     uart_init();
@@ -44,6 +65,9 @@ int main(void) {
     RUN_TEST(test_calculate_checksum_with_valid_data);
     RUN_TEST(test_calculate_checksum_with_empty_data);
     RUN_TEST(test_calculate_checksum_with_max_values);
+    RUN_TEST(test_calculate_checksum_with_null_buffer);
+    RUN_TEST(test_calculate_checksum_with_zero_length);
+    RUN_TEST(test_calculate_zero_checksum);
     
     int failures = UNITY_END();
 
