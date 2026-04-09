@@ -36,5 +36,11 @@ coverage: run
 		coverage ./coverage/trace.bin \
 		--binary Lab3.elf \
 		--sources ./src/checksum.c | \
-		awk -F',' '/DA:/ {found++; if($$2>0) hit++} END \
-		{printf "\nTotal Coverage: %.2f%% (%d/%d lines hit)\n", (hit/found)*100, hit, found}'
+		awk -F',' '/DA:/ {found++; if($$2>0) hit++} END { \
+			percent = (found > 0) ? (hit/found)*100 : 0; \
+			msg = sprintf("\nTotal Coverage: %.2f%% (%d/%d lines hit)\n", percent, hit, found); \
+			print msg; \
+			if (ENVIRON["GITHUB_STEP_SUMMARY"] != "") { \
+				printf "### 📊 Coverage Report\n- **Status:** %s\n- **Percentage:** %.2f%%\n- **Details:** %d out of %d lines executed\n", (percent == 100 ? "✅ Pass" : "⚠️ Partial"), percent, hit, found >> ENVIRON["GITHUB_STEP_SUMMARY"]; \
+			} \
+		}'
