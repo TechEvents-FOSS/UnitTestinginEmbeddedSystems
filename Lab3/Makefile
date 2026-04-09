@@ -19,11 +19,22 @@ SRC = \
  src/syscalls.c \
  unity/unity.c
 
+.PHONY: all clean run coverage
+
 all:
 	$(CC) $(CFLAGS) $(SRC) $(LDFLAGS) -o $(TARGET).elf
 
 clean:
-	rm -f *.elf
+	rm -f *.elf coverage/trace.*
 
-run: all
+run: clean all
+	touch coverage/trace.bin
 	renode --disable-xwt renode/stm32.resc
+
+coverage: run
+	@python3 /opt/renode/tools/execution_tracer/execution_tracer_reader.py \
+		coverage ./coverage/trace.bin \
+		--binary Lab3.elf \
+		--sources ./src/checksum.c | \
+		awk -F',' '/DA:/ {found++; if($$2>0) hit++} END \
+		{printf "\nTotal Coverage: %.2f%% (%d/%d lines hit)\n", (hit/found)*100, hit, found}'

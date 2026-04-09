@@ -3,8 +3,11 @@ machine LoadPlatformDescription @platforms/boards/stm32f4_discovery-kit.repl
 
 sysbus LoadELF @Lab3.elf
 
+sysbus.cpu CreateExecutionTracing "tracer" @./coverage/trace.bin PC true
+sysbus.cpu EnableOpcodesCounting true
+
 showAnalyzer sysbus.usart2
 
-sysbus.usart2 AddLineHook "TEST_RESULT:" "#print 'completed'";quit
+sysbus.usart2 AddLineHook "TEST_RESULT:" "#print 'completed'";sysbus.cpu GetAllOpcodesCounters;quit
 
 start

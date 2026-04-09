@@ -1,0 +1,19 @@
+name: Code Coverage
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y make gcc gcovr build-essential
+      - name: Install Renode
+        run: ./Lab3/install_tools.sh
+      - name: Run renode based code coverage analysis
+        run: make coverage -C Lab3
