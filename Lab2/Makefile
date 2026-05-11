@@ -25,6 +25,7 @@ run: test_checksum
 coverage: $(SRC) $(TEST_SRC)
 	$(CC) $(COVERAGE_FLAGS) $(CFLAGS) $(INCLUDE) -o $(PROJECT) $^
 	./$(PROJECT)
-	if [ -f Lab1-checksum.gcda ]; then mv Lab1-checksum.gcda checksum.gcda; fi
-	if [ -f Lab1-checksum.gcno ]; then mv Lab1-checksum.gcno checksum.gcno; fi
-	gcov -a checksum.c > coverage_checksum.txt
+	if [ -f Lab2-checksum.gcda ]; then mv Lab2-checksum.gcda checksum.gcda; fi
+	if [ -f Lab2-checksum.gcno ]; then mv Lab2-checksum.gcno checksum.gcno; fi
+	gcov -ab checksum.c > coverage_checksum.txt
+	cat coverage_checksum.txt

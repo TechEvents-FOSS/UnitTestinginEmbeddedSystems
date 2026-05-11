@@ -44,3 +44,9 @@ coverage: run
 				printf "### 📊 Coverage Report\n- **Status:** %s\n- **Percentage:** %.2f%%\n- **Details:** %d out of %d lines executed\n", (percent == 100 ? "✅ Pass" : "⚠️ Partial"), percent, hit, found >> ENVIRON["GITHUB_STEP_SUMMARY"]; \
 			} \
 		}'
+
+trace:
+	python3 /opt/renode/tools/execution_tracer/execution_tracer_reader.py \
+		coverage ./coverage/trace.bin \
+		--binary Lab3.elf \
+		--sources ./src/checksum.c
