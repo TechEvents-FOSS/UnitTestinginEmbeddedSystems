@@ -1,0 +1,10 @@
+mach create
+machine LoadPlatformDescription @platforms/boards/stm32f4_discovery-kit.repl
+
+sysbus LoadELF @Lab3.elf
+showAnalyzer sysbus.usart2
+
+start
+
+sleep 10
+quit
