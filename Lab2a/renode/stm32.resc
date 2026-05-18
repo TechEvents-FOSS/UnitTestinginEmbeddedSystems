@@ -1,7 +1,7 @@
 mach create
 machine LoadPlatformDescription @platforms/boards/stm32f4_discovery-kit.repl
 
-sysbus LoadELF @Lab3.elf
+sysbus LoadELF @Lab2a.elf
 showAnalyzer sysbus.usart2
 
 start

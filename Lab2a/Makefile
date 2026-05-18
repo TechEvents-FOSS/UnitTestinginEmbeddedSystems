@@ -1,4 +1,4 @@
-TARGET = Lab3
+TARGET = Lab2a
 CC = arm-none-eabi-gcc
 
 CFLAGS = -mcpu=cortex-m4 -mthumb \
