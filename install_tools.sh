@@ -36,7 +36,9 @@ fi
 # Install Renode only if not already installed
 if ! command -v renode >/dev/null 2>&1; then
     wget -q https://github.com/renode/renode/releases/download/v1.16.1/renode_1.16.1_amd64.deb
-    sudo dpkg -i renode_1.16.1_amd64.deb
+    sudo dpkg -i renode_1.16.1_amd64.deb || true
+    sudo apt-get update
+    sudo apt-get install -f -y
     rm renode_1.16.1_amd64.deb
 fi
 
