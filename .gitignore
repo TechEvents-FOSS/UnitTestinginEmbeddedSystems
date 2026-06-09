@@ -62,3 +62,5 @@ dkms.conf
 Lab1/Lab1
 Lab1/coverage_checksum.txt
 Lab1/*.gcov
+
+*build*

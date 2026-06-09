@@ -1,0 +1,22 @@
+:project:
+  :build_root: build
+  :test_file_prefix: test_
+
+:paths:
+  :source:
+    - src
+  :include:
+    - src
+  :test:
+    - test
+
+:cmock:
+  :mock_prefix: Mock
+
+:plugins:
+  :enabled:
+    - gcov
+
+:gcov:
+  :reports:
+    - HtmlDetailed

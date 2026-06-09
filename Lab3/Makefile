@@ -41,7 +41,7 @@ coverage: run
 			msg = sprintf("\nTotal Coverage: %.2f%% (%d/%d lines hit)\n", percent, hit, found); \
 			print msg; \
 			if (ENVIRON["GITHUB_STEP_SUMMARY"] != "") { \
-				printf "### 📊 Coverage Report\n- **Status:** %s\n- **Percentage:** %.2f%%\n- **Details:** %d out of %d lines executed\n", (percent == 100 ? "✅ Pass" : "⚠️ Partial"), percent, hit, found >> ENVIRON["GITHUB_STEP_SUMMARY"]; \
+				printf "### 📊 Coverage Report\n\n---\n\n## Lab3 - Renode Coverage\n- **Status:** %s\n- **Percentage:** %.2f%%\n- **Details:** %d out of %d lines executed\n", (percent == 100 ? "✅ Pass" : "⚠️ Partial"), percent, hit, found >> ENVIRON["GITHUB_STEP_SUMMARY"]; \
 			} \
 		}'
 

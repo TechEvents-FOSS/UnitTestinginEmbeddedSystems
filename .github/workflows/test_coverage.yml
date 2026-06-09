@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y make gcc gcovr build-essential
-      - name: Install Renode
-        run: ./Lab3/install_tools.sh
+      - name: Setup Environment
+        run: ./install_tools.sh
       - name: Run renode based code coverage analysis
         run: make coverage -C Lab3
+      - name: Lab4 code coverage analysis
+        run: make coverage_summary -C Lab4
